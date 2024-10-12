@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCCOE ACM STUDENT CHAPTER</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black">
+
+  <div id="splash" class="fixed top-0 left-0 w-full h-screen flex items-center justify-center z-50 transition-opacity duration-2000">
+    <h1 id="text" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center"></h1>
+  </div>
+
+  <div id="main-content" class="hidden opacity-0 transition-opacity duration-2000">
+    <div class="bg-gray-800 text-white">
+      <nav class="flex justify-between items-center p-4">
+        <img src="res/amc-pccoe-logo.c1c5c28d.png" alt="PCCOE ACM Logo" class="h-20 md:h-25 ml-6">
+
+        <div class="hidden md:flex space-x-8 mr-10">
+            <!-- for laptop or tab view -->
+            <li class="list-none hover:text-gray-300 cursor-pointer text-lg md:text-2xl lg:text-{2.8}xl">Home</li>
+            <li class="list-none hover:text-gray-300 cursor-pointer text-lg md:text-2xl lg:text-{2.8}xl">Achievements</li>
+            <li class="list-none hover:text-gray-300 cursor-pointer text-lg md:text-2xl lg:text-{2.8}xl">Single Events</li>
+            <li class="list-none hover:text-gray-300 cursor-pointer text-lg md:text-2xl lg:text-{2.8}xl">CESA Insider</li>
+            <li class="list-none hover:text-gray-300 cursor-pointer text-lg md:text-2xl lg:text-{2.8}xl">Team</li>
+            <li class="list-none hover:text-gray-300 cursor-pointer text-lg md:text-2xl lg:text-{2.8}xl">Contact Us</li>
+        </div>
+        
+        <button id="hamburger" class="md:hidden text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </nav>
+      
+      <!-- writen for mobile view -->
+      <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-90 flex flex-col items-center justify-center hidden">
+        <button id="close-menu" class="absolute top-5 right-5 text-white focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <ul class="space-y-4 text-3xl text-white text-center ">
+          <li class="hover:text-gray-300 cursor-pointer">Home</li>
+          <li class="hover:text-gray-300 cursor-pointer">Achievements</li>
+          <li class="hover:text-gray-300 cursor-pointer">Single Events</li>
+          <li class="hover:text-gray-300 cursor-pointer">CESA Insider</li>
+          <li class="hover:text-gray-300 cursor-pointer">Team</li>
+          <li class="hover:text-gray-300 cursor-pointer">Contact Us</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="p-4 sm:p-8">
+      <h1 class="text-xl sm:text-2xl font-bold text-white">Main Content</h1>
+      <p class="mt-4 text-base sm:text-lg text-white">This is the main content of the website. The splash screen will hide with a smooth fade-out effect after the typing effect.</p>
+    </div>
+  </div>
+
+
+  <!-- slider -->
+
+
+
+
+  <script src="index.js"></script>
+
+</body>
+</html>
