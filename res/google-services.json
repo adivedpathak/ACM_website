@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "271658180644",
+    "project_id": "inventrix-95a21",
+    "storage_bucket": "inventrix-95a21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271658180644:android:49f6fc6a1adb86c23478b1",
+        "android_client_info": {
+          "package_name": "com.pss_dev.inventrix_blg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271658180644-j50as2jepfk9290trqgt1q5c9clvne91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6FNe9afmw1lMjl5-duynpgU-bZ16w7os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271658180644-j50as2jepfk9290trqgt1q5c9clvne91.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
