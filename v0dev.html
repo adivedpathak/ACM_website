@@ -82,10 +82,16 @@
     </style>
 </head>
 <body class="bg-black text-white">
+
+    <div id="intro">
+        <div id="typed-text"></div>
+        <div class="cursor"></div>
+    </div>
+
     <nav class="bg-gray-900 border-gray-700 fixed w-full z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="index.html" class="flex items-center">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="ACM Logo" />
+                <img src="assets/amc-pccoe-logo.c1c5c28d.png" class="h-12 mr-3" alt="ACM Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">PCCOE ACM</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -113,19 +119,19 @@
 
     <header class="relative h-screen overflow-hidden">
         <div id="header-slider" class="absolute top-0 left-0 w-full h-full">
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/placeholder.svg?height=1080&width=1920" class="absolute block w-full h-full object-cover" alt="...">
+            <div class="carousel-item active fade-in">
+                <img src="assets/team1.png" class="absolute block w-full h-full object-cover" alt="Image 1">
             </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/placeholder.svg?height=1080&width=1920" class="absolute block w-full h-full object-cover" alt="...">
+            <div class="carousel-item fade-out">
+                <img src="assets/team2.png" class="absolute block w-full h-full object-cover" alt="Image 2">
             </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/placeholder.svg?height=1080&width=1920" class="absolute block w-full h-full object-cover" alt="...">
+            <div class="carousel-item fade-out">
+                <img src="assets/team3.png" class="absolute block w-full h-full object-cover" alt="Image 3">
             </div>
         </div>
         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to PCCOE ACM Student Chapter</h1>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to <span class="text-blue-500">PCCOE ACM</span> Student Chapter</h1>
                 <p class="text-xl md:text-2xl mb-8 text-gray-300">Innovate. Create. Elevate.</p>
             </div>
         </div>
@@ -259,7 +265,7 @@
             </div>
         </section>
 
-        <section id="join-us" class="mb-16 pt-16">
+        <!-- <section id="join-us" class="mb-16 pt-16">
             <h2 class="text-3xl font-bold mb-6 text-center">Join the Tech Revolution</h2>
             <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center card-animation">
                 <p class="text-xl mb-6">Ready to embark on an exciting journey in the world of technology? Become a part of our vibrant community today!</p>
@@ -267,7 +273,7 @@
                     Become a Member
                 </a>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <footer class="bg-gray-900 text-white py-8">
@@ -310,7 +316,54 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script>
-        // Auto image slider
+       
+        const headerSlider = document.getElementById('header-slider');
+        let currentSlide = 0;
+        const slides = headerSlider.querySelectorAll('[data-carousel-item]');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('hidden');
+                } else {
+                    slide.classList.add('hidden');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 5000); 
+        showSlide(currentSlide);
+
+ function Tyeeffect(){
+      // Typing effect and smooth transition
+      const introText = "Welcome to PCCOE ACM Student Chapter";
+        const typedTextElement = document.getElementById('typed-text');
+        const introElement = document.getElementById('intro');
+        let charIndex = 0;
+
+        function typeText() {
+            if (charIndex < introText.length) {
+                typedTextElement.innerHTML += introText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 100);
+            } else {
+                setTimeout(() => {
+                    introElement.style.opacity = '0';
+                    setTimeout(() => {
+                        introElement.style.display = 'none';
+                    }, 1000);
+                }, 1000);
+            }
+        }
+
+        window.addEventListener('load', typeText);
+
+        // Auto image slider (unchanged)
         const headerSlider = document.getElementById('header-slider');
         let currentSlide = 0;
         const slides = headerSlider.querySelectorAll('[data-carousel-item]');
@@ -332,6 +385,63 @@
 
         setInterval(nextSlide, 5000); // Change slide every 5 seconds
         showSlide(currentSlide); // Show initial slide
+ }        
+
+
+
+
+
+
+
     </script>
+
+<script>
+    const items = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+
+    function showNextImage() {
+        // Fade out the current image
+        items[currentIndex].classList.remove('fade-in');
+        items[currentIndex].classList.add('fade-out');
+
+        // Update index to the next image
+        currentIndex = (currentIndex + 1) % items.length;
+
+        // Fade in the next image
+        items[currentIndex].classList.remove('fade-out');
+        items[currentIndex].classList.add('fade-in');
+
+        // Set active class to the current item
+        items.forEach((item, index) => {
+            item.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Start the image slider
+    setInterval(showNextImage, 2000); // Change image every 5 seconds
+
+    // Typing effect for the text
+    const typedTextElement = document.getElementById('typed-text');
+    const textToType = "PCCOE ACM Student Chapter";
+    let index = 0;
+
+    function typeText() {
+        if (index < textToType.length) {
+            typedTextElement.innerHTML += textToType[index++];
+            setTimeout(typeText, 100); // Adjust speed here
+        }
+    }
+
+    typeText();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+
 </body>
 </html>
+
+
+
+
+

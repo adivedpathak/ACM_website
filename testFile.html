@@ -1,83 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Effect</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        #text {
-            font-family: Arial, sans-serif;
-            font-size: 24px;
-            white-space: pre;
+    <title>PCCOE ACM Student Chapter - Innovate, Create, Elevate</title>
+    <link href="index.css" rel="stylesheet">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
+                    }
+                },
+                fontFamily: {
+                    'body': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+                    'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji']
+                }
+            }
         }
-    </style>
+    </script>
+    
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen">
 
-<div>
-      
-
-
-    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-          </a>
-          <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-              </svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
-              </li>
-              <li>
-                  <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Dropdown <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-        </svg></button>
-                  <!-- Dropdown menu -->
-                  <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                        <li>
-                          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                        </li>
-                      </ul>
-                      <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                      </div>
-                  </div>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      
+  <div id="intro">
+    <div id="typed-text"></div>
+    <div class="cursor"></div>
 </div>
+    <nav class="fixed w-full z-40 bg-opacity-10 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <img src="assets/amc-pccoe-logo.c1c5c28d.png" alt="ACM Logo" class="h-8 w-auto">
+                    <span class="ml-2 text-xl font-semibold gradient-text">PCCOE ACM</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#achievements" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                        <a href="#events" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Events</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<script> 
- 
+    <header class="relative h-screen overflow-hidden">
+      <div id="header-slider" class="absolute inset-0">
+          <img src="assets/pcet-institutes-4.webp" alt="Header Background 1" class="w-full h-full object-cover fade-effect hidden" data-carousel-item>
+          <img src="assets/team2.png" alt="Header Background 2" class="w-full h-full object-cover fade-effect hidden" data-carousel-item>
+          <img src="assets/pcet-institutes-2.webp" alt="Header Background 3" class="w-full h-full object-cover fade-effect hidden" data-carousel-item>
+          <img src="assets/pcet-institutes-3.webp" alt="Header Background 3" class="w-full h-full object-cover fade-effect hidden" data-carousel-item>
+          <img src="assets/pcet-institutes-1.webp" alt="Header Background 3" class="w-full h-full object-cover fade-effect hidden" data-carousel-item>
 
-</script>
+        </div>
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="text-center">
+              <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">Welcome to PCCOE ACM Student Chapter</h1>
+              <p class="text-xl md:text-2xl mb-8 text-gray-300">Innovate. Create. Elevate.</p>
+          </div>
+      </div>
+  </header>
+  
 
+    <section id="best-chapter" class="mb-16 pt-16">
+      <div class="glass-effect p-8 rounded-lg shadow-lg text-center">
+          <h2 class="text-3xl font-bold mb-4 gradient-text">Best ACM Student Chapter</h2>
+          <p class="text-xl text-gray-300">We're proud to announce that PCCOE ACM has been recognized as the Best ACM Student Chapter last year!</p>
+      </div>
+  </section>
+
+
+    <main class="container mx-auto mt-8 p-4">
+       <section id="about" class="mb-16 pt-16">
+            <h2 class="text-3xl font-bold mb-6 text-center">About Us</h2>
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg card-animation">
+                <p class="text-lg mb-4">
+                    The PCCOE ACM Student Chapter is a vibrant community of tech enthusiasts, innovators, and future leaders in the world of computing. We are dedicated to fostering learning, innovation, and professional growth in the ever-evolving field of computer science and technology.
+                </p>
+                <p class="text-lg mb-4">
+                    Our mission is to empower students with cutting-edge knowledge, hands-on experience, and networking opportunities that will shape the future of technology. Through a diverse range of activities, workshops, and events, we aim to bridge the gap between academic learning and industry requirements.
+                </p>
+                <p class="text-lg">
+                    Join us in our journey to push the boundaries of what's possible in the digital realm. Whether you're a coding novice or a seasoned developer, there's a place for you in our community of tech trailblazers.
+                </p>
+            </div>
+        </section>
+
+   
+      
+        <section id="achievements" class="mb-16 pt-16">
+            <h2 class="text-3xl font-bold mb-6 text-center gradient-text">Our Stellar Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="achievement-card p-6 rounded-lg shadow-lg border border-gray-400">
+                <img src="https://imgs.search.brave.com/MSahwOsVdckS7OZNrnCjTIsiJdnx1df8iM1lUWwCGkM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9yZWNvZ25pemlu/Zy1yZXdhcmRpbmct/YWNoaWV2ZW1lbnRz/LWFyLWdlbmVyYXRp/dmUtYWlfMTE5ODIz/MC0xMTQ1MjEuanBn/P3NpemU9NjI2JmV4/dD1qcGc?height=200&width=300" alt="ICPC Glory" class="w-full h-40 object-cover rounded-t-lg mb-4">
+                <h3 class="text-xl font-semibold mb-4 gradient-text">ICPC Glory</h3>
+                <ul class="list-disc list-inside text-gray-300">
+                    <li>Team "CodeCrusaders" selected for ICPC World Finals 2023</li>
+                    <li>Aarav Patel crowned ICPC Asia West Continent Champion</li>
+                    <li>Priya Sharma secured 2nd place in ICPC Regionals 2022</li>
+                </ul>
+            </div>
+            
+            <div class="achievement-card p-6 rounded-lg shadow-lg border border-gray-400">
+                <img src="https://imgs.search.brave.com/MSahwOsVdckS7OZNrnCjTIsiJdnx1df8iM1lUWwCGkM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9yZWNvZ25pemlu/Zy1yZXdhcmRpbmct/YWNoaWV2ZW1lbnRz/LWFyLWdlbmVyYXRp/dmUtYWlfMTE5ODIz/MC0xMTQ1MjEuanBn/P3NpemU9NjI2JmV4/dD1qcGc?height=200&width=300" alt="ACM Winter School" class="w-full h-40 object-cover rounded-t-lg mb-4">
+                <h3 class="text-xl font-semibold mb-4 gradient-text">ACM Winter School Success</h3>
+                <ul class="list-disc list-inside text-gray-300">
+                    <li>Rahul Gupta's blockchain project won "Best Innovation" at ACM Winter School</li>
+                    <li>5 students presented groundbreaking research papers</li>
+                    <li>PCCOE ACM organized a successful workshop on AI Ethics</li>
+                </ul>
+            </div>
+            
+                <div class="achievement-card p-6 rounded-lg shadow-lg border border-gray-400">
+                  <img src="https://imgs.search.brave.com/MSahwOsVdckS7OZNrnCjTIsiJdnx1df8iM1lUWwCGkM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9yZWNvZ25pemlu/Zy1yZXdhcmRpbmct/YWNoaWV2ZW1lbnRz/LWFyLWdlbmVyYXRp/dmUtYWlfMTE5ODIz/MC0xMTQ1MjEuanBn/P3NpemU9NjI2JmV4/dD1qcGc?height=200&width=300" alt="Industry Impact" class="w-full h-40 object-cover rounded-t-lg mb-4">
+                  <h3 class="text-xl font-semibold mb-4 gradient-text">Industry Impact</h3>
+                  <ul class="list-disc list-inside text-gray-300">
+                      <li>Ananya Desai - Software Engineer at LinkedIn</li>
+                      <li>Vikram Singh - AI Researcher at Amazon</li>
+                      <li>Sneha Patel - Data Scientist at Microsoft</li>
+                  </ul>
+              </div>
+              
+            </div>
+        </section>
+
+        <section id="events" class="mb-16 pt-16">
+            <h2 class="text-3xl font-bold mb-6 text-center gradient-text">Our Upcoming Events</h2>
+            <div class="overflow-hidden">
+                <div class="flex space-x-8 float-animation" style="animation-duration: 30s;">
+                    <div class="glass-effect p-6 rounded-lg shadow-lg flex-shrink-0 w-80">
+                        <h3 class="text-xl font-semibold mb-4 gradient-text">Tech Event 1</h3>
+                        <p class="text-gray-300 mb-4">Join us for an exciting tech event filled with innovation and learning.</p>
+                        <p class="text-sm text-gray-400 mb-4">Date: Coming Soon</p>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">
+                            Learn More
+                        </button>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg shadow-lg flex-shrink-0 w-80">
+                        <h3 class="text-xl font-semibold mb-4 gradient-text">Tech Event 2</h3>
+                        <p class="text-gray-300 mb-4">Discover the latest in AI and machine learning at this cutting-edge workshop.</p>
+                        <p class="text-sm text-gray-400 mb-4">Date: Coming Soon</p>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">
+                            Register Now
+                        </button>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg shadow-lg flex-shrink-0 w-80">
+                        <h3 class="text-xl font-semibold mb-4 gradient-text">Tech Event 3</h3>
+                        <p class="text-gray-300 mb-4">Network with industry leaders and explore career opportunities in tech.</p>
+                        <p class="text-sm text-gray-400 mb-4">Date: Coming Soon</p>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">
+                            Register Now
+                        </button>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg shadow-lg flex-shrink-0 w-80">
+                        <h3 class="text-xl font-semibold mb-4 gradient-text">Tech Event 4</h3>
+                        <p class="text-gray-300 mb-4">Hackathon alert! Put your coding skills to the test and win amazing prizes.</p>
+                        <p class="text-sm text-gray-400 mb-4">Date: Coming Soon</p>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">
+                            Register Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faculty-coordinators" class="mb-16 pt-16">
+          <h2 class="text-3xl font-bold mb-6 text-center gradient-text">Our Faculty Coordinators</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg text-center">
+                  <img src="assets/image.png" alt="Dr. Jane Doe" class="w-32 h-32 rounded-full mx-auto mb-4">
+                  <h3 class="text-xl font-semibold mb-2 gradient-text">Dr.Rahul Pitale </h3>
+                  <p class="text-gray-300">Professor, Computer Science</p>
+              </div>
+              <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg text-center">
+                  <img src="assets/image.png" alt="Prof. John Smith" class="w-32 h-32 rounded-full mx-auto mb-4">
+                  <h3 class="text-xl font-semibold mb-2 gradient-text">Prof .Madhura Kalbhor</h3>
+                  <p class="text-gray-300">Associate Professor, AI & ML</p>
+              </div>
+              <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg text-center">
+                  <img src="assets/image.png" alt="Dr. Emily Brown" class="w-32 h-32 rounded-full mx-auto mb-4">
+                  <h3 class="text-xl font-semibold mb-2 gradient-text">Dr.Kapil Tajne</h3>
+                  <p class="text-gray-300">Assistant Professor, Data Science</p>
+              </div>
+          </div>
+      </section>
+
+
+        <section id="sponsors" class="mb-16 pt-16">
+            <h2 class="text-3xl font-bold mb-6 text-center gradient-text">Our Sponsors</h2>
+            <div class="overflow-hidden">
+                <div class="flex space-x-8 animate-marquee">
+                    <img src="assets/coursera-logo.6c580505.png" alt="Sponsor 1" class="h-16 object-contain">
+                    <img src="assets/gsoc-logo.2b4dcec5.png" alt="Sponsor 2" class="h-16 object-contain">
+                    <img src="assets/hackerrank-logo.36a052f1.png" alt="Sponsor 3" class="h-16 object-contain">
+                    <img src="assets/icpc-logo.4e66c41b.ico" alt="Sponsor 4" class="h-16 object-contain">
+                    <img src="assets/leetcode-logo.f424deb3.png" alt="Sponsor 5" class="h-16 object-contain">
+                    <img src="assets/interviewbit-logo.8ee67637.png" alt="Sponsor 6" class="h-16 object-contain">
+                    <img src="assets/sih-logo.d6598f33.png" alt="Sponsor 6" class="h-16 object-contain">
+                    <img src="assets/imad-logo.ed4d7712.jpeg" alt="Sponsor 6" class="h-16 object-contain">
+
+                    <img src="assets/nptel-logo.bd17a04b.png" alt="Sponsor 6" class="h-16 object-contain">
+
+                    <img src="assets/udacity-logo.14e6e716.png" alt="Sponsor 6" class="h-16 object-contain">
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">PCCOE ACM Student Chapter</h3>
+                    <p class="text-gray-300">Empowering the next generation of tech innovators.</p>
+                </div>
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">Quick Links</h3>
+                    <ul class="text-gray-300">
+                        <li><a href="#about" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="#achievements" class="hover:text-blue-400">Achievements</a></li>
+                        <li><a href="#events" class="hover:text-blue-400">Events</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/3">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">Connect With Us</h3>
+                    <p class="text-gray-300">Email: acm@pccoe.edu</p>
+                    <p class="text-gray-300">Phone: +91 1234567890</p>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-blue-400">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-gray-300">&copy; 2023 PCCOE ACM Student Chapter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+ <script src="index.js"></script>
 </body>
 </html>

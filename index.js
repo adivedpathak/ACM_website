@@ -1,102 +1,74 @@
+const introText = "Welcome to PCCOE ACM Student Chapter";
+const typedTextElement = document.getElementById('typed-text');
+const introElement = document.getElementById('intro');
+let charIndex = 0;
 
- //below is for splash screen and typing effect
-window.addEventListener('load', function () {
-    setTimeout(function () {
-      const splash = document.getElementById('splash');
-      const mainContent = document.getElementById('main-content');
-
-      splash.classList.add('fade-out');
-
-      setTimeout(function () {
-        splash.classList.add('hidden');
-        mainContent.classList.remove('hidden');
-        mainContent.classList.add('opacity-100');
-      }, 2000);
-      
-    }, 2000);
-  });
-
-  const text = "PCCoE ACM STUDENT CHAPTER";
-  let index = 0;
-  const speed = 102;
-
-  function typeWriter() {
-    if (index < text.length) {
-      document.getElementById("text").innerHTML += text.charAt(index);
-      index++;
-      setTimeout(typeWriter, speed);
+function typeText() {
+    if (charIndex < introText.length) {
+        typedTextElement.innerHTML += introText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeText, 100);
     } else {
-      setTimeout(fadeOutText, 1000);
+        setTimeout(() => {
+            introElement.style.opacity = '0';
+            setTimeout(() => {
+                introElement.style.display = 'none';
+            }, 1000);
+        }, 1000);
     }
+}
+
+window.addEventListener('load', typeText);
+
+// Auto image slider (unchanged)
+const headerSlider = document.getElementById('header-slider');
+let currentSlide = 0;
+const slides = headerSlider.querySelectorAll('[data-carousel-item]');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            slide.classList.remove('hidden');
+        } else {
+            slide.classList.add('hidden');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 3000); // Change slide every 5 seconds
+showSlide(currentSlide);
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const headerSlider = document.getElementById('header-slider');
+  const slides = headerSlider.querySelectorAll('[data-carousel-item]');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+      slides.forEach((slide, i) => {
+          if (i === index) {
+              slide.classList.add('active');
+              slide.classList.remove('hidden'); // Make it visible
+          } else {
+              slide.classList.remove('active');
+              setTimeout(() => {
+                  slide.classList.add('hidden'); // Delay hiding to ensure smooth fade-out
+              }, 1000); // Match the fade-out time
+          }
+      });
   }
 
-  function fadeOutText() {
-    const textElement = document.getElementById("text");
-    textElement.classList.add('fade-out');
-
-    setTimeout(function () {
-      const splash = document.getElementById('splash');
-      const mainContent = document.getElementById('main-content');
-
-      splash.classList.add('hidden');
-      mainContent.classList.remove('hidden');
-      mainContent.classList.add('opacity-200');
-    }, 2000);
+  function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
   }
 
-  window.onload = typeWriter;
-
-
-//hamburger
-  document.getElementById('hamburger').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  document.getElementById('close-menu').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.add('hidden');
-  });
-
-
-
-  const slides = document.querySelector('.slides');
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
-  let indexe = 1; // Start at the first duplicate slide
-
-  function showSlide() {
-      const offset = -indexe * 100; // Calculate the offset
-      slides.style.transform = `translateX(${offset}%)`;
-  }
-
-  function showNextSlide() {
-    indexe++; // Move to the next slide
-      // Check if we've reached the last slide (the duplicate of the first)
-      if (indexe === slides.children.length - 1) {
-          setTimeout(() => {
-            indexe = 1; // Reset to the first original slide
-              slides.style.transition = 'none'; // Disable transition
-              showSlide(); // Jump to the first original slide
-          }, 500); // Wait for the transition duration
-      }
-      slides.style.transition = 'transform 0.5s ease-in-out'; // Enable transition
-      showSlide();
-  }
-
-  function showPrevSlide() {
-    indexe--; // Move to the previous slide
-      // Check if we've reached the first slide (the duplicate of the last)
-      if (indexe === 0) {
-        indexe = slides.children.length - 2; // Jump to the last original slide
-          slides.style.transition = 'none'; // Disable transition
-          showSlide(); // Jump to the last original slide
-      }
-      slides.style.transition = 'transform 0.5s ease-in-out'; // Enable transition
-      showSlide();
-  }
-
-  nextButton.addEventListener('click', showNextSlide);
-  prevButton.addEventListener('click', showPrevSlide);
-
-  setInterval(showNextSlide, 3000); // Change image every 3 seconds
+  setInterval(nextSlide, 3000); // Slide change interval
+  showSlide(currentSlide); // Show the first slide initially
+});
